@@ -1,0 +1,24 @@
+<div class="book-detail">
+  <div class="row">
+    <div class="col-md-6">
+      <%=image_tag(@book.img,:size => "150x300",:style=>"margin:40px 10px; ,display:inline; ")%>
+    </div>
+    <div class="col-md-6">
+      <h2><%= @book.title %></h2>
+      <p><%= @book.author %></p>
+      <p>ジャンル:<%=Field.find_by(id:@book.id).name%></p>
+      <p>棚の番号:<%=@book.place%></p>
+      <%=link_to("編集する","/books/#{@book.id}/edit")%>
+      <%=link_to("削除する","/books/#{@book.id}/destroy",{method:"post"})%>
+
+
+      <% if @book.user_id == nil%>
+        <%= button_to "借りる", {controller: 'books', action: 'hello'}, {method: :post} %>
+      <% elsif @book.user_id == @current_user.id %>
+        <%= button_to "返す", {controller: 'books', action: 'bye'}, {method: :post} %>
+      <% else %>
+        在庫なし
+      <% end %>
+    </div>
+  </div>
+</div>

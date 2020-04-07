@@ -1,0 +1,31 @@
+<div class="signup">
+       <%= form_tag("/books/create") do %>
+          <p>タイトル</p>
+          <input name="title" value="<%= @book.title %>">
+          <p>著者</p>
+          <input name="author" value="<%= @book.author %>">
+          <p>分野</p>
+          <select name="name">
+           <option value="経営戦略">経営戦略</option>
+           <option value="マーケティング・セールス">マーケティング・セールス</option>
+           <option value="経理・アカウンティング">経理・アカウンティング</option>
+           <option value="金融・ファイナンス">金融・ファイナンス</option>
+           <option value="オペレーションズ">オペレーションズ</option>
+           <option value="マネジメント・人材管理">マネジメント・人材管理</option>
+           <option value="自己啓発">自己啓発</option>
+           <option value="デザイン">デザイン</option>
+           <option value="暮らし・健康・子育て">暮らし・健康・子育て</option>
+           <option value="小説・エッセー">小説・エッセー</option>
+           <option value="その他">その他</option>
+          </select>
+          <p>棚番号</p>
+          <select name="place">
+            <option value="<%=@book.place %>">1</option>
+            <option value="<%=@book.place %>">2</option>
+            <option value="<%=@book.place %>">3</option>
+          </select>
+          <input name="img" type="file">
+          <input type="submit" value="登録">
+
+        <% end %>
+</div>

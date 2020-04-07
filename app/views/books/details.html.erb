@@ -1,0 +1,13 @@
+<div class="book-detail">
+    <% @books.each do |book| %>
+      <div class="row">
+        <div class="col-md-6">
+         <%=link_to(image_tag("book.png",:size => "150x200"),"/books/#{book.id}",:style=>"margin:40px 10px; ,display:inline; height:30px; ")%>
+        </div>
+        <div class="col-md-6">
+         <%=link_to(book.title,"/books/#{book.id}",:style=>"font-size:20px")%>
+         <p><%=book.author%></p>
+       </div>
+      </div>
+    <% end %>
+</div>
